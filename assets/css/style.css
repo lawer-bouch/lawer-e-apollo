@@ -5,9 +5,10 @@
     --text-light: #E0E0E0;
     --text-secondary: #BDBDBD;
     --highlight-pink: #FF80AB;
-    --gradient-start: #00C853;
+    --gradient-start: #8A0303;
     --gradient-end: #FFC1E3;
     --box-shadow-color: rgba(0, 0, 0, 0.5);
+    --highlight-apollo: #8A0303;
 }
 
 /* Reset e estilos gerais */
@@ -31,7 +32,8 @@ header {
     background-color: var(--background-light);
     padding: 20px;
     box-shadow: 0 4px 6px var(--box-shadow-color);
-    border-bottom: 2px solid var(--highlight-pink); /* Linha sutil na parte inferior */
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, var(--highlight-pink), var(--highlight-apollo)) 1;
 }
 
 .logo {
@@ -95,7 +97,7 @@ header {
 #days-counter {
     font-size: 1.5em;
     font-weight: bold;
-    color: #81c784;
+    color: #8A0303;
 }
 
 /* Responsividade */
@@ -151,6 +153,7 @@ header {
 
 .container[style*="display: none"] {
     opacity: 0;
+    gap: 20px;
 }
 
 /* Foto e Caixa Polaroid */
@@ -273,7 +276,7 @@ footer p:last-child {
 }
 
 #back-to-top:hover {
-    background-color: var(--gradient-end);
+    background-color:#8A0303;
     transform: scale(1.1); /* Efeito de aumento */
     width: 45px;
     height: 45px;
@@ -453,13 +456,13 @@ footer p:last-child {
 
 /* Estiliza o "thumb" (a parte que você arrasta) */
 ::-webkit-scrollbar-thumb {
-    background: #00C853; /* Cor da parte arrastável */
+    background: linear-gradient(135deg, var(--highlight-pink), var(--highlight-apollo));; /* Cor da parte arrastável */
     border-radius: 5px; /* Bordas arredondadas */
 }
 
 /* Cor quando o usuário está interagindo com o thumb */
 ::-webkit-scrollbar-thumb:hover {
-    background: #00E676; /* Cor ao passar o mouse */
+    background: linear-gradient(135deg, var(--highlight-pink), var(--highlight-apollo));; /* Cor ao passar o mouse */
 }
 
 /* Estiliza os botões de canto (nos scrollbars horizontais/verticais) */

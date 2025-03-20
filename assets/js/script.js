@@ -57,10 +57,10 @@ backToTopButton.addEventListener('click', function() {
 });
 
 // Função para calcular o número de dias desde o início
-const startDate = new Date("2023-06-01"); // Substitua pela data de início
+const startDate = new Date("2025-19-03"); // Substitua pela data de início
 const today = new Date();
 const diffTime = today - startDate;
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
 // Exibe o número de dias no elemento HTML
-document.getElementById("days-counter").innerText = `Já se passaram ${diffDays} dias desde o nosso primeiro dia juntos!`;
+document.getElementById("days-counter").innerText = `Já se passaram ${diffDays} dias desde que estamos juntos!`;

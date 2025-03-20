@@ -161,7 +161,7 @@ header {
     text-align: center;
     margin: 20px 0;
     position: relative;
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Suavizar a transição da polaroid */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Suavizar a transição da polaroid  */
 }
 
 .photo-box {

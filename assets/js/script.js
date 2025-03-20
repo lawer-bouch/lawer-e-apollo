@@ -11,18 +11,15 @@ function filterContainers() {
 
     containers.forEach(container => {
         const title = container.querySelector('h2').textContent.toLowerCase();
-        const date = container.querySelector('.photo-caption').textContent.toLowerCase();
-        const categories = container.getAttribute('data-categorias').toLowerCase();
+        const dateElement = container.querySelector('.photo-caption');
+        const date = dateElement ? dateElement.textContent.toLowerCase() : "";
+        const categories = container.getAttribute('data-categorias')?.toLowerCase() || "";
 
         const matchesName = title.includes(searchNameValue);
         const matchesDate = date.includes(searchDateValue);
         const matchesCategory = categories.includes(searchCategoryValue);
 
-        if (matchesName && matchesDate && matchesCategory) {
-            container.style.display = 'block'; // Exibe a foto
-        } else {
-            container.style.display = 'none'; // Oculta a foto
-        }
+        container.style.display = (matchesName && matchesDate && matchesCategory) ? 'block' : 'none';
     });
 }
 
@@ -31,36 +28,25 @@ searchNameInput.addEventListener('input', filterContainers);
 searchDateInput.addEventListener('input', filterContainers);
 searchCategoryInput.addEventListener('input', filterContainers);
 
-// Seleciona o botão de voltar ao topo
+// Botão de voltar ao topo
 const backToTopButton = document.getElementById('back-to-top');
-
-// Exibe o botão quando o usuário rolar para baixo
 window.onscroll = function() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTopButton.style.display = 'block'; // Exibe o botão
-    } else {
-        backToTopButton.style.display = 'none'; // Oculta o botão
-    }
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    if (document.documentElement.scrollTop > 100) {
+        backToTopButton.style.display = 'block';
         backToTopButton.classList.add('show');
     } else {
+        backToTopButton.style.display = 'none';
         backToTopButton.classList.remove('show');
     }
 };
-
-// Função para rolar até o topo da página quando o botão for clicado
 backToTopButton.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Rolar suavemente até o topo
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Função para calcular o número de dias desde o início
-const startDate = new Date("2025-19-03"); // Substitua pela data de início
+// Contador de dias
+const startDate = new Date("2025-03-19"); // Data corrigida para formato correto
 const today = new Date();
 const diffTime = today - startDate;
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-// Exibe o número de dias no elemento HTML
 document.getElementById("days-counter").innerText = `Já se passaram ${diffDays} dias desde que estamos juntos!`;

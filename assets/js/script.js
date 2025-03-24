@@ -44,7 +44,7 @@ backToTopButton.addEventListener('click', function() {
 });
 
 // Contador de dias
-const startDate = new Date("2025-03-19"); // Data corrigida para formato correto
+const startDate = new Date("2025-03-23"); // Data corrigida para formato correto
 const today = new Date();
 const diffTime = today - startDate;
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));

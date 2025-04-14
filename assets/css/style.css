@@ -204,7 +204,7 @@ header {
 .photo-wrapper:hover img {
     transform: scale(1.03); /* Zoom suave na imagem dentro da polaroid */
 }
-
+r
 /* Títulos das seções */
 .container h2 {
     text-align: center;

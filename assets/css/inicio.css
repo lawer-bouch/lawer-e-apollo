@@ -1,0 +1,102 @@
+.placeholder-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0;
+}
+
+.image-placeholder {
+    text-align: center;
+    border: 2px dashed #ff66aa;
+    padding: 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Love_Heart_SVG.svg/1024px-Love_Heart_SVG.svg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+    background-blend-mode: soft-light;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.image-placeholder img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 0.85;
+    filter: sepia(0.2) contrast(1.1) brightness(0.95);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.image-placeholder:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 102, 170, 0.4);
+}
+
+.image-placeholder:hover img {
+    opacity: 1;
+    filter: sepia(0.1) contrast(1.2) brightness(1);
+}
+
+.image-placeholder p {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Query para telas pequenas (celulares) */
+@media (max-width: 600px) {
+    .image-placeholder img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .image-placeholder p {
+        font-size: 1em;
+    }
+
+    .image-placeholder {
+        padding: 15px;
+        background-size: 80px;
+    }
+}
+
+/* Media Query para telas médias (tablets) */
+@media (max-width: 768px) and (min-width: 601px) {
+    .image-placeholder img {
+        width: 400px;
+        height: 400px;
+    }
+
+    .image-placeholder p {
+        font-size: 1.05em;
+    }
+}
+
+/* Animação de aparecer de baixo */
+@keyframes aparecerDeBaixo {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Começa deslocado para baixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição original */
+    }
+}
+
+/* Estilo para a .placeholder-section com animação */
+.placeholder-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Começa deslocado para baixo */
+    animation: aparecerDeBaixo 1s ease-out forwards; /* Aparece com animação */
+}
+

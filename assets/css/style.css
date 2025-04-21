@@ -11,12 +11,52 @@
     --highlight-apollo: #8A0303;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* Reset e estilos gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+}
+
+#botoes {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra em telas pequenas */
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+
+#botoes button {
+    background: linear-gradient(180deg, var(--highlight-apollo) 50%, var(--highlight-pink) 50%);
+    background-size: 100% 200%;
+    width: 120px;
+    height: 35px;
+    border-radius: 12px;
+    border: none;
+    text-decoration: none;
+    transition: background-position 0.2s ease-in-out, color 0.4s ease;
+    cursor: pointer;
+    color: var(--corBranco);
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#botoes button:hover {
+    transform: scale(1.05);
+    background-position: 0 100%;
+    color: var(--corCinzaEscuro);
 }
 
 body {
@@ -475,3 +515,55 @@ footer p:last-child {
     background: #2c2c2c; /* Cor do fundo do trilho */
     border-radius: 5px; /* Bordas arredondadas */
 }
+
+@media (max-width: 480px) {
+    #botoes {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    #botoes button {
+        width: 90%;
+        max-width: 250px;
+    }
+
+    .header-title {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+#main-content {
+    flex: 1;
+}
+
+/* Animação de aparecer de baixo */
+@keyframes aparecerDeBaixo {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Começa abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição original */
+    }
+}
+
+/* Estilo para o container com animação */
+.container {
+    padding: 20px;
+    width: 100%;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Começa deslocado para baixo */
+    animation: aparecerDeBaixo 1s ease-out forwards; /* Animação de aparecer subindo */
+    text-align: center;
+}
+

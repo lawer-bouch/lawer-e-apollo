@@ -1,0 +1,101 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.timeline-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline {
+  position: relative;
+  height: 4px;
+  background: #ccc;
+  margin: 50px auto;
+  width: 100%;
+  max-width: 800px; /* Limita a largura máxima */
+  border-radius: 4px;
+}
+
+.timeline-event {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: #FF80AB;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.timeline-event:hover .tooltip {
+  opacity: 1;
+}
+
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#foda {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Media Query para telas pequenas (celulares) */
+@media (max-width: 600px) {
+  .timeline {
+      width: 90%; /* Reduz a largura da timeline em telas pequenas */
+      margin: 30px auto; /* Ajusta a margem */
+  }
+
+  .timeline-event {
+      width: 12px; /* Reduz o tamanho do evento */
+      height: 12px; /* Reduz a altura do evento */
+  }
+
+  .tooltip {
+      font-size: 12px; /* Diminui o tamanho da fonte da tooltip */
+      padding: 4px 8px; /* Ajusta o padding da tooltip */
+  }
+}
+
+/* Media Query para telas médias (tablets) */
+@media (max-width: 768px) and (min-width: 601px) {
+  .timeline {
+      width: 85%; /* Reduz um pouco a largura da timeline */
+  }
+
+  .timeline-event {
+      width: 13px; /* Ajusta o tamanho do evento para tablets */
+      height: 13px;
+  }
+
+  .tooltip {
+      font-size: 13px; /* Ajusta o tamanho da fonte */
+  }
+}

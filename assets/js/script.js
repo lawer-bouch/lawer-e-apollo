@@ -4,29 +4,31 @@ const searchDateInput = document.getElementById('search-date');
 const searchCategoryInput = document.getElementById('search-category');
 const containers = document.querySelectorAll('.container');
 
-function filterContainers() {
-    const searchNameValue = searchNameInput.value.toLowerCase();
-    const searchDateValue = searchDateInput.value.toLowerCase();
-    const searchCategoryValue = searchCategoryInput.value.toLowerCase();
+if (searchNameInput && searchDateInput && searchCategoryInput && containers.length > 0) {
+    function filterContainers() {
+        const searchNameValue = searchNameInput.value.toLowerCase();
+        const searchDateValue = searchDateInput.value.toLowerCase();
+        const searchCategoryValue = searchCategoryInput.value.toLowerCase();
 
-    containers.forEach(container => {
-        const title = container.querySelector('h2').textContent.toLowerCase();
-        const dateElement = container.querySelector('.photo-caption');
-        const date = dateElement ? dateElement.textContent.toLowerCase() : "";
-        const categories = container.getAttribute('data-categorias')?.toLowerCase() || "";
+        containers.forEach(container => {
+            const title = container.querySelector('h2').textContent.toLowerCase();
+            const dateElement = container.querySelector('.photo-caption');
+            const date = dateElement ? dateElement.textContent.toLowerCase() : "";
+            const categories = container.getAttribute('data-categorias')?.toLowerCase() || "";
 
-        const matchesName = title.includes(searchNameValue);
-        const matchesDate = date.includes(searchDateValue);
-        const matchesCategory = categories.includes(searchCategoryValue);
+            const matchesName = title.includes(searchNameValue);
+            const matchesDate = date.includes(searchDateValue);
+            const matchesCategory = categories.includes(searchCategoryValue);
 
-        container.style.display = (matchesName && matchesDate && matchesCategory) ? 'block' : 'none';
-    });
+            container.style.display = (matchesName && matchesDate && matchesCategory) ? 'block' : 'none';
+        });
+    }
+
+    // Adiciona event listeners para os campos de busca
+    searchNameInput.addEventListener('input', filterContainers);
+    searchDateInput.addEventListener('input', filterContainers);
+    searchCategoryInput.addEventListener('input', filterContainers);
 }
-
-// Adiciona event listeners para os campos de busca
-searchNameInput.addEventListener('input', filterContainers);
-searchDateInput.addEventListener('input', filterContainers);
-searchCategoryInput.addEventListener('input', filterContainers);
 
 // Botão de voltar ao topo
 const backToTopButton = document.getElementById('back-to-top');
@@ -44,9 +46,11 @@ backToTopButton.addEventListener('click', function() {
 });
 
 // Contador de dias
-const startDate = new Date("2025-03-23");
-const today = new Date();
-const diffTime = today - startDate;
-const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-document.getElementById("days-counter").innerText = `Já se passaram ${diffDays} dias desde que estamos juntos!`;
+const daysCounter = document.getElementById("days-counter");
+if (daysCounter) {
+    const startDate = new Date("2025-03-23");
+    const today = new Date();
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    daysCounter.innerText = `Já se passaram ${diffDays} dias desde que estamos juntos!`;
+}

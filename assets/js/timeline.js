@@ -2,6 +2,7 @@ const eventos = [
   { data: '2025-02-28', descricao: 'Dia em que nos conhecemos' },
   { data: '2025-03-15', descricao: 'Lawer conta para Apollo que gosta dele' },
   { data: '2025-03-23', descricao: 'Apollo pede Lawer em namoro' },
+  { data: '2025-05-16', descricao: 'Comprada a passagem para Lawer visitar Apollo' },
 ];
 
 const timeline = document.getElementById('timeline');

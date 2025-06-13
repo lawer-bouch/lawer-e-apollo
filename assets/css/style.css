@@ -140,6 +140,12 @@ header {
     color: #8A0303;
 }
 
+#days-counter2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8A0303;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .counter {
@@ -154,6 +160,10 @@ header {
     #days-counter {
         font-size: 1.2em; /* Reduz o tamanho do contador */
     }
+
+    #days-counter2 {
+        font-size: 1.2em; /* Reduz o tamanho do contador */
+    }
 }
 
 @media (max-width: 480px) {
@@ -166,6 +176,10 @@ header {
     }
 
     #days-counter {
+        font-size: 1em; /* Fonte compacta para encaixar melhor em telas pequenas */
+    }
+
+     #days-counter2 {
         font-size: 1em; /* Fonte compacta para encaixar melhor em telas pequenas */
     }
 }

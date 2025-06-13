@@ -54,3 +54,13 @@ if (daysCounter) {
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
     daysCounter.innerText = `Já se passaram ${diffDays} dias desde que estamos juntos!`;
 }
+
+const daysCounter2 = document.getElementById("days-counter2");
+if (daysCounter2) {
+    const startDate = new Date("2025-06-12");
+    const today = new Date();
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    daysCounter2.innerText = `Já se passaram ${diffDays} desde o pedido de casamento!`;
+}
+

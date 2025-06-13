@@ -62,6 +62,10 @@
         padding: 15px;
         background-size: 80px;
     }
+
+    #timers {
+        flex-direction: column;
+    }
 }
 
 /* Media Query para telas médias (tablets) */
@@ -73,6 +77,10 @@
 
     .image-placeholder p {
         font-size: 1.05em;
+    }
+    
+    #timers {
+        flex-direction: column;
     }
 }
 
@@ -100,3 +108,14 @@
     animation: aparecerDeBaixo 1s ease-out forwards; /* Aparece com animação */
 }
 
+#timers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.counter {
+    margin: 0px;
+    margin-top: 20px;
+}

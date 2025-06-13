@@ -554,16 +554,16 @@ footer p:last-child {
     }
 }
 
-/* Estilo para o container com animação */
-.container {
-    padding: 20px;
-    width: 100%;
-    background-color: var(--background-light);
-    border-radius: 8px;
-    box-shadow: 0 0 10px var(--box-shadow-color);
-    opacity: 0; /* Inicialmente invisível */
-    transform: translateY(50px); /* Começa deslocado para baixo */
-    animation: aparecerDeBaixo 1s ease-out forwards; /* Animação de aparecer subindo */
-    text-align: center;
+.container.especial {
+  background-color: var(--background-light);
+  border-radius: 8px;
+  padding: 20px;
+  width: 600px;
+  text-align: center;
+  box-shadow:
+    0 0 10px var(--box-shadow-color),
+    0 0 20px var(--highlight-pink),
+    0 0 30px var(--highlight-apollo);
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
 }
-
